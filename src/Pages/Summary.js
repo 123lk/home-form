@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 
 class Summary extends Component {
   render () {
+    console.log(localStorage.getItem('firstName'));
+
     return (
       <div>
         <Grid container spacing={24} >

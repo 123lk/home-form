@@ -4,9 +4,6 @@ import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import { Line } from 'rc-progress';
 import Button from '@material-ui/core/Button';
-import { Link } from 'react-router-dom';
-import {connect} from 'react-redux';
-import {saveName} from '../actions/index.js';
 
 class Name extends Component {
   constructor (props) {
@@ -24,13 +21,11 @@ class Name extends Component {
   }
 
   handleClick() {
-    const name = {firstName: this.state.firstName, lastName: this.state.lastName}
-    console.log(name)
-    this.props.saveName(name);
+    localStorage.setItem('firstName', this.state.firstName)
+    localStorage.setItem('lastName', this.state.lastName)
   }
 
   render () {
-    console.log(this.props)
     return (
       <div>
         <Grid container spacing={24} >
@@ -64,7 +59,7 @@ class Name extends Component {
               </Grid>
               <Grid container spacing={24} direction='row' style={{marginTop: '6em'}}>
                 <Grid item container justify='flex-end' alignItems='flex-end' xs={10}>
-                  <Button variant="contained" component={Link} to='/contact' onClick={this.handleClick.bind(this)}>Next</Button>
+                  <Button variant="contained" onClick={this.handleClick.bind(this)}>Next</Button>
                 </Grid>
               </Grid>
             </Paper> 
@@ -76,19 +71,4 @@ class Name extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    firstName: state.firstName,
-    lastName: state.lastName,
-    name: state.name
-  }
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    saveName: name => {dispatch(saveName(name))}
-  }
-}
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(Name);
+export default Name;

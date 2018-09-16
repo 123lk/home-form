@@ -7,6 +7,9 @@ import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 
 class Contact extends Component {
+  handleBackClick () {
+    this.props.history.push('/');
+  }
   render () {
     return (
       <div>
@@ -38,7 +41,7 @@ class Contact extends Component {
               <Grid container spacing={24} direction='row' style={{marginTop: '6em'}}>
                 <Grid item container justify='flex-end' alignItems='flex-end' xs={10}>
                   <span>
-                    <Button variant="contained" component={Link} to='/'>Back</Button>
+                    <Button variant="contained" onClick={this.handleBackClick.bind(this)}>Back</Button>
                   </span>
                   <span>
                     <Button variant="contained" component={Link} to='/salary'>Next</Button>
