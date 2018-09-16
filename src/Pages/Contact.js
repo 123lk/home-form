@@ -4,19 +4,35 @@ import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import { Line } from 'rc-progress';
 import Button from '@material-ui/core/Button';
-import { Link } from 'react-router-dom';
 
 class Contact extends Component {
-  handleBackClick () {
-    this.props.history.push('/');
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: '',
+      phoneNumber: ''
+    }
   }
+
+  handleChange = name => event => {
+    this.setState({
+      [name]: event.target.value
+    });
+  }
+
+  handleClick() {
+    localStorage.setItem('email', this.state.email)
+    localStorage.setItem('phoneNumber', this.state.phoneNumber)
+    this.props.history.push('/salary')
+  }
+
   render () {
     return (
       <div>
         <Grid container spacing={24} >
           <Grid item sm={3} />
           <Grid item xs={12} sm={6}>
-            <Paper style={{width: '100%', height: 400, marginTop: '12em'}}>
+            <Paper style={{width: '100%', height: 400, marginTop: '6em'}}>
               <Grid container spacing={24} justify='center' alignItems='center'>
                 <Grid item xs={8} sm={8}>
                   <div style={{marginBottom: '3em'}}>
@@ -25,27 +41,26 @@ class Contact extends Component {
                 </Grid>
                 <Grid item xs={8} sm={8}>
                   <TextField
-                    id="name"
+                    id="email"
                     label="Email"
+                    value={this.state.email}
+                    onChange={this.handleChange('email').bind(this)}
                     fullWidth={true}
                   />
                 </Grid>
                 <Grid item xs={8} sm={8}>
                   <TextField
-                    id="name"
+                    id="phoneNumber"
                     label="Phone number"
+                    value={this.state.phoneNumber}
+                    onChange={this.handleChange('phoneNumber').bind(this)}
                     fullWidth={true}
                   />
                 </Grid>
               </Grid>
               <Grid container spacing={24} direction='row' style={{marginTop: '6em'}}>
                 <Grid item container justify='flex-end' alignItems='flex-end' xs={10}>
-                  <span>
-                    <Button variant="contained" onClick={this.handleBackClick.bind(this)}>Back</Button>
-                  </span>
-                  <span>
-                    <Button variant="contained" component={Link} to='/salary'>Next</Button>
-                  </span>
+                  <Button variant="contained" onClick={this.handleClick.bind(this)}>Next</Button>
                 </Grid>
               </Grid>
             </Paper> 

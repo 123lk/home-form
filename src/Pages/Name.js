@@ -23,6 +23,7 @@ class Name extends Component {
   handleClick() {
     localStorage.setItem('firstName', this.state.firstName)
     localStorage.setItem('lastName', this.state.lastName)
+    this.props.history.push('/contact')
   }
 
   render () {
@@ -31,14 +32,14 @@ class Name extends Component {
         <Grid container spacing={24} >
           <Grid item sm={3} />
           <Grid item xs={12} sm={6}>
-            <Paper style={{width: '100%', height: 400, marginTop: '10em'}}>
+            <Paper style={{width: '100%', height: 400, marginTop: '6em'}}>
               <Grid container spacing={24} justify='center' alignItems='center'>
                 <Grid item xs={8} sm={8}>
                   <div style={{marginBottom: '3em'}}>
                     <Line percent="25" strokeWidth="1" strokeColor="green" />
                   </div>
                 </Grid>
-                <Grid item xs={8} sm={8}>
+                <Grid item xs={8}>
                   <TextField
                     id="firstName"
                     label="First name"
@@ -47,7 +48,7 @@ class Name extends Component {
                     fullWidth={true}
                   />
                 </Grid>
-                <Grid item xs={8} sm={8}>
+                <Grid item xs={8}>
                   <TextField
                     id="lastName"
                     label="Last name"
