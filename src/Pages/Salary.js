@@ -7,7 +7,6 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
 
 class Salary extends Component {
   constructor (props) {
@@ -41,7 +40,7 @@ class Salary extends Component {
                 </Grid>
                 <Grid item xs={8}>
                   <FormControl component="fieldset" >
-                  <FormLabel component="legend">Salary</FormLabel>
+                    <h3>Salary</h3>
                     <RadioGroup
                       value={this.state.salary}
                       onChange={this.handleChange.bind(this)}
@@ -72,7 +71,7 @@ class Salary extends Component {
 const styles = {
   paper: {
     width: '100%', 
-    height: 450, 
+    height: 490, 
     marginTop: '20%'
   },
   progressBarContainer: {

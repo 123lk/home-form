@@ -85,12 +85,6 @@ const styles = {
   },
   buttonContainer: {
     marginTop: '5%'
-  },
-  resize: {
-    fontFamily: 'Exo, sans-serif'
-  },
-  textField: {
-    fontFamily: 'Exo, sans-serif'
   }
 }
 
