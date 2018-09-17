@@ -22,15 +22,19 @@ class Summary extends Component {
         <Grid container spacing={24} >
           <Grid item sm={3} />
           <Grid item xs={12} sm={6}>
-            <Paper style={{width: '100%', height: 500, marginTop: '6em'}}>
+            <Paper style={{width: '100%', height: 570, marginTop: '20%'}}>
               <Grid container spacing={24} justify='center' alignItems='center'>
                 <Grid item xs={8} sm={8}>
                   <div>
-                    <Line percent="100" strokeWidth="1" strokeColor="green" />
+                    <Line percent="100" strokeWidth="1" strokeColor="darkGray" />
                   </div>
                 </Grid>
                 <Grid item xs={8}>
+                    <h3 style={{marginBottom: 0}}>Summary of details</h3>
+                </Grid>
+                <Grid item xs={8}>
                     <TextField
+                      style={{fontFamily: 'Exo, sans-serif'}}
                       id="firstName"
                       label="First name"
                       value={this.state.firstName}
@@ -70,9 +74,9 @@ class Summary extends Component {
                   />
                 </Grid>
               </Grid>
-              <Grid container spacing={24} direction='row'>
+              <Grid container spacing={24} direction='row' style={{marginTop: '10px'}}>
                 <Grid item container justify='flex-end' alignItems='flex-end' xs={10}>
-                    <Button variant="contained">Submit</Button>
+                    <Button variant="outlined" color="secondary" style={{fontFamily: 'Exo, sans-serif'}}>Submit</Button>
                 </Grid>
               </Grid>
             </Paper> 
