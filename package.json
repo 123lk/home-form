@@ -2,6 +2,7 @@
   "name": "home-form",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://123lk.github.io/home-form",
   "dependencies": {
     "@material-ui/core": "^3.0.3",
     "rc-progress": "^2.2.5",
